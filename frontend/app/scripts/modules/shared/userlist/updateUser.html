@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h4>User : {{ctrl.userObject.user.username}}</h4>
+    </div>
+    <div class="col-sm-12">
+        <div>
+            <label>Email : <strong>{{ctrl.userObject.user.email_id}}</strong></label>
+        </div>
+        <div>
+            <label>Address : <strong>{{ctrl.userObject.user.address}}</strong></label>
+        </div>
+        <div>
+            <label>zipcode : <strong>{{ctrl.userObject.user.zipcode}}</strong></label>
+        </div>
+        <div>
+            <label>companyname : <strong>{{ctrl.userObject.user.companyname}}</strong></label>
+        </div>
+        <div>
+            <label>Current Role : <strong>{{ctrl.userObject.role_ids | json}}</strong></label>
+        </div>
+        <div>
+            <label>Current Apps : <strong>{{ctrl.userObject.apps | json}}</strong></label>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <update-role user="ctrl.userObject.user"></update-role>
+        <update-app user="ctrl.userObject.user"></update-app>
+    </div>
+</div>

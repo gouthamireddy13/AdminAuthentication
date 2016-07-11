@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-sm-12">
+		<a class="cursor-pointer" ui-sref="register"> <i class="glyphicon glyphicon-plus" aria-hidden="true" />Add New User </a>
+		<span class="pull-right"> <small>User Count: </small><span class="badge">{{ctrl.users.length}}</span></span>
+	</div>
+	<div class="col-sm-12">
+		<table class="table">
+			<thead>
+				<tr class="info">
+					<th>User Name</th>
+					<th>Email Id</th>
+					<th>Company Name</th>
+					<th ng-if="ctrl.isAdmin()">Active</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in ctrl.users | orderBy:'username'">
+					<td><span><a class="cursor-pointer" ng-click="ctrl.updateUser(user.username)">{{user.username}}</a></span></td>
+					<td>{{user.email_id}}</td>
+					<td>{{user.companyname}}</td>
+					<td ng-if="ctrl.isAdmin()">
+						<input ng-hide="user.username == 'admin'" type="checkbox" ng-model="user.active" ng-change="ctrl.changeUserState(user)">
+						<!-- <span>
+							<a title="Edit" class="cursor-pointer" ng-click="ctrl.modify(user)"><i class="glyphicon glyphicon-edit" aria-hidden="true" /></a>
+						</span> -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
